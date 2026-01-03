@@ -11,12 +11,12 @@
 - 响应式画廊模式：支持妆容历史库预览、一键换妆及物理联动删除。
 
 ## 🛠 技术栈
-框架: Vue 3 (Composition API)
-构建工具: Vite 5+
-AI 引擎: @mediapipe/tasks-vision (WebAssembly)
-网络请求: Axios + 自定义拦截器
-路由管理: Vue Router 4
-样式方案: 原生 CSS 变量 + 响应式 Grid 布局
+- 框架: Vue 3 (Composition API)
+- 构建工具: Vite 5+
+- AI 引擎: @mediapipe/tasks-vision (WebAssembly)
+- 网络请求: Axios + 自定义拦截器
+- 路由管理: Vue Router 4
+- 样式方案: 原生 CSS 变量 + 响应式 Grid 布局
 
 ## 🚀 环境搭建与快速启动
 1. 克隆项目并进入目录

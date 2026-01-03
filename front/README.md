@@ -51,6 +51,71 @@ npm run dev
 
 启动后，在浏览器访问 http://localhost:5173。
 
+## 📱 移动端打包指南 
+本项目支持通过 Capacitor 快速构建为 Android 或 iOS 原生应用。
+
+### 1. 安装 Capacitor 核心依赖
+在 front 目录下运行：
+```bash
+npm install @capacitor/core @capacitor/cli
+```
+### 2. 初始化 Capacitor 配置
+```bash
+npx cap init
+# App Name: MagicMirror
+# App ID: com.yourname.magicmirror
+# Web assets directory: dist
+```
+### 3. 添加原生平台
+```
+# Android
+npm install @capacitor/android
+npx cap add android
+
+# iOS (需要 macOS 且安装了 Xcode)
+npm install @capacitor/ios
+npx cap add ios
+```
+
+### 4. 关键配置：连接后端与摄像头权限
+#### A. 局域网连接配置 (重要)
+由于手机端无法识别 localhost，打包前必须将 .env.development 或代码中的 API 地址修改为电脑的局域网 IP：
+```lni
+# 例如
+VITE_API_BASE_URL=http://192.168.1.5:8000/api/v1
+VITE_IMAGE_BASE_URL=http://192.168.1.5:8000
+```
+
+#### B. 申请原生摄像头权限
+- Android: 打开 android/app/src/main/AndroidManifest.xml，在 <application> 标签外添加：
+```Xml
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.INTERNET" />
+```
+- iOS: 在 ios/App/App/Info.plist 中添加描述：
+```Xml
+<key>NSCameraUsageDescription</key>
+<string>魔镜需要开启摄像头以实现实时试妆效果</string>
+```
+
+### 5. 构建与同步流程
+每当你修改了前端代码，需要执行以下步骤同步到 App：
+```bash
+# 1. 编译 Vue 项目
+npm run build
+
+# 2. 将产物拷贝到原生工程
+npx cap copy
+
+# 3. 打开原生开发工具
+npx cap open android  # 或 ios
+```
+
+### 6. 性能调优建议
+在手机端运行 AI 追踪时，若出现掉帧，请进入 src/components/MagicMirror.vue：
+- 确保 FaceLandmarker 选项中的 delegate 设置为 "GPU"。
+- 建议在光线充足的环境下使用，以提高 MediaPipe 的识别精度。
+
 ## 📂 项目结构说明
 ```Text
 front/

@@ -1,0 +1,58 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- 依赖包 (绝对不能传，几百MB) ---
+node_modules/
+
+# --- 构建产物 ---
+dist/
+dist-ssr/
+*.local
+
+# --- 环境变量 ---
+# 忽略包含 API 地址和密钥的配置
+.env
+.env.*
+# 允许上传一个模板文件供他人参考 (可选)
+!.env.example
+
+# --- 日志 ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- 编辑器与系统 ---
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- AI 模型 (同后端理由) ---
+public/face_landmarker.task

@@ -1,0 +1,32 @@
+# --- Python 基础 ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv
+env/
+venv/
+ENV/
+
+# --- 敏感信息 (极其重要) ---
+.env
+
+# --- 数据库 ---
+# 数据库属于本地数据，不应上传至代码仓库
+*.db
+*.sqlite3
+
+# --- 静态资源与缓存 ---
+# 忽略所有用户生成的抠图
+static/makeup_parts/*
+# 如果你想保留文件夹结构但忽略内容，可以取消下面这行的注释
+# !static/makeup_parts/.gitkeep
+
+# --- AI 模型 ---
+# 模型文件较大 (5MB+)，通常建议在 README 中提供下载链接而非直接上传
+# 如果你觉得无所谓也可以不忽略，但标准工程一般不上传二进制模型
+face_landmarker.task
+
+# --- 日志与系统 ---
+*.log
+.DS_Store
